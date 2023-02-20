@@ -1,0 +1,2 @@
+class DesignReview < ApplicationRecord
+end

@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  pool: 5
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: ghost_kolosek_api_development
+
+test: &test
+  <<: *default
+  database: ghost_kolosek_api_test
+#
+production:
+  <<: *default
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
